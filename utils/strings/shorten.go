@@ -4,7 +4,7 @@ import "strings"
 
 func Shorten(name string) string {
 	return fromString(name).
-		split().
+		split(" ").
 		mapNotEmpty(func(s string) string {
 			return strings.ToUpper(string(s[0]))
 		}).
@@ -18,8 +18,8 @@ func fromString(value string) shorten {
 	return shorten{value}
 }
 
-func (s shorten) split() shortenSlice {
-	return shortenSlice{strings.Split(s.string, " ")}
+func (s shorten) split(separator string) shortenSlice {
+	return shortenSlice{strings.Split(s.string, separator)}
 }
 
 func (values shortenSlice) mapNotEmpty(f func(string) string) shortenSlice {

@@ -202,18 +202,22 @@ func Shorten(name string) string {
 }
 ```
 
+Par poder darnos cuenta que hace el código anterior, seguramente debemos  invertir algunos minutos.
+
 Lo que buscamos es convertir lo anterior en algo mas declarativo, como se muestra a continuación :
 
 ```
 func Shorten(name string) string {
 	return fromString(name).
-		split().
+		split(" ").
 		mapNotEmpty(func(s string) string {
 			return strings.ToUpper(string(s[0]))
 		}).
 		joinToString()
 }
 ```
+
+Podemos notar luego de leer el código declarativo, que es mucho mas simple entender que hace, simplemente convierte algo como "uno dos tres" en "UDT".
 
 Ahora para que el código anterior funcione, necesitamos estas herramientas :
 
@@ -225,8 +229,8 @@ func fromString(value string) shorten {
 	return shorten{value}
 }
 
-func (s shorten) split() shortenSlice {
-	return shortenSlice{strings.Split(s.string, " ")}
+func (s shorten) split(separator string) shortenSlice {
+	return shortenSlice{strings.Split(s.string, separator)}
 }
 
 func (values shortenSlice) mapNotEmpty(f func(string) string) shortenSlice {
