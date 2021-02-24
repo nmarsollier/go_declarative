@@ -1,4 +1,4 @@
-# Capítulo 5: Un poco mas declarativos
+# Un poco mas declarativos
 
 Si bien a la fecha, Go es un lenguaje netamente imperativo, en este repositorio planteo algunos tips un poco mas declarativas para escribir nuestro código mas legible en Go.
 
@@ -6,7 +6,7 @@ Si bien a la fecha, Go es un lenguaje netamente imperativo, en este repositorio 
 
 Go no es declarativo, por consiguiente, es una excelente pregunta. 
 
-Ser declarativos es evitar la parte procedural en nuestra lógica, ejemplo :
+Ser declarativos es evitar la parte imperativa en nuestra lógica, ejemplo :
 
 ```
 // imperativo
