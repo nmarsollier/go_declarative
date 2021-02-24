@@ -9,8 +9,7 @@ Go no es declarativo, por consiguiente, es una excelente pregunta.
 Ser declarativos es evitar la parte procedural en nuestra lógica, ejemplo :
 
 ```
-// procedural
-
+// imperativo
 func Suma(start, end int) int {
 	suma := 0
 	for i := start; i < end; i++ {
@@ -23,9 +22,9 @@ func Suma(start, end int) int {
 suma := Suma(1, 100)
 ```
 
-La idea, entonces es, generar una seria de librerías genéricas que nos abstraigan un poco de la parte procedural, para poder generar nuestra lógica de negocios en forma declarativa.
+La idea, entonces es, generar una seria de librerías genéricas que nos abstraigan un poco de la parte procedural, para poder escribir nuestra lógica de negocios en forma declarativa.
 
-Los lenguajes funcionales en general son declarativos, y no procedurales.
+Los lenguajes funcionales en general son declarativos, y no imperativos.
 
 Muchos lenguaje OO modernos también nos incentivan a expresar el código en forma declarativa.
 
