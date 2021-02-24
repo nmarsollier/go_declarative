@@ -1,4 +1,4 @@
-# Capítulo 4: Un poco mas declarativos
+# Capítulo 5: Un poco mas declarativos
 
 Si bien a la fecha, Go es un lenguaje netamente imperativo, en este repositorio planteo algunos tips un poco mas declarativas para escribir nuestro código mas legible en Go.
 
@@ -254,10 +254,11 @@ La cantidad de código a escribir parece mucha, pero consideremos que shorten y 
 
 Siempre es conveniente comenzar con una buena base, por ejemplo la librería https://github.com/jucardi/go-streams, nos proporciona formas declarativas básicas para manejar listas y luego le agregaremos nuestras funciones mas concretas
 
-## Nota
-
 Creo que es importante ir revisando estas estrategias, en el futuro de Go nos han prometido Geneircs, y un manejo mas declarativo en el lenguaje, veremos.
 
-Esta es una serie de tutoriales sobre patrones simples de programación en GO.
+## Nota
 
-[Capítulo 3: Router Design Pattern](https://github.com/nmarsollier/go_router_design)
+Esta es una serie de notas sobre patrones simples de programación en GO.
+
+[Tabla de Contenidos](https://github.com/nmarsollier/go_index)
+
