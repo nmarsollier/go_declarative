@@ -1,3 +1,5 @@
+[English Version](https://github.com/nmarsollier/go_declarative/blob/main/README_en.md)
+
 # Un poco mas declarativos
 
 Si bien a la fecha, Go es un lenguaje netamente imperativo, en este repositorio planteo algunos tips, para escribir código un poco mas declarativo.
@@ -253,5 +255,5 @@ Creo que es importante ir revisando estas estrategias, en el futuro de Go nos ha
 
 Esta es una serie de notas sobre patrones simples de programación en GO.
 
-[Tabla de Contenidos](https://github.com/nmarsollier/go_index)
+[Tabla de Contenidos](https://github.com/nmarsollier/go_index/blob/main/README.md)
 
