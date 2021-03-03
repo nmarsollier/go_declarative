@@ -10,7 +10,7 @@ Go is not a declarative language, so, it is a good question.
 
 To be declarative, is to avoid write code in a procedural way, like :
 
-```
+```go
 // imperative
 func Suma(start, end int) int {
 	suma := 0
@@ -40,7 +40,7 @@ There are many of them, at business code writhing time, the declarative way allo
 
 One DRY concept, to avoid code repetition is to build a function that does that part of the code :
 
-```
+```go
 func sayHelloHandler(c *gin.Context) {
 	userName := c.Param("userName")
 
@@ -50,7 +50,7 @@ func sayHelloHandler(c *gin.Context) {
 }
 ```
 
-```
+```go
 func pingHandler(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{
 		"answer": "pong",
@@ -60,7 +60,7 @@ func pingHandler(c *gin.Context) {
 
 If we write a library like :
 
-```
+```go
 func SendJSONAnswer(c *gin.Context, data interface{}) {
 	c.JSON(http.StatusOK, gin.H{
 		"answer": data,
@@ -70,13 +70,13 @@ func SendJSONAnswer(c *gin.Context, data interface{}) {
 
 That allow us to be more declarative, and to not repeat at the time, the new code is :
 
-```
+```go
 func sayHelloHandler(c *gin.Context) {
 	gu.SendJSONAnswer(c, service.SayHello(c.Param("userName")))
 }
 ```
 
-```
+```go
 func pingHandler(c *gin.Context) {
 	gu.SendJSONAnswer(c, "pong")
 }
@@ -88,7 +88,7 @@ An important aspect that we look for, is to write function names like the natura
 
 For example, if instead of call the previous example sayHelloHandler we call it  sayHello, it gets more natural:
 
-```
+```go
 func init() {
 	getRouter().GET(
 		"/hello/:userName",
@@ -104,7 +104,7 @@ And we are being more declarative.
 
 A builder is a typical use scenario to be declarative.
 
-```
+```go
 dialog.NewBuilder().Title("Hola Mundo").AcceptAction("Aceptar", "ok").Build()
 ```
 
@@ -112,7 +112,7 @@ I think that we like the builder pattern, because it is declarative.
 
 The implementation could be :
 
-```
+```go
 package dialog
 
 import (
@@ -170,7 +170,7 @@ Not sure if worth in Go, but surely many times we will see code that could becom
 
 Lets check this imperative function.
 
-```
+```go
 func Shorten(name string) string {
 	values := strings.Split(name, " ")
 
@@ -188,7 +188,7 @@ func Shorten(name string) string {
 
 Have you discover what it does ? What if we define the same thing in a declarative way:
 
-```
+```go
 func Shorten(name string) string {
 	return fromString(name).
 		split(" ").
@@ -210,7 +210,7 @@ It simply converts "one little thing" in "OLT".
 
 Now to make that code works, we need these libraries :
 
-```
+```go
 type shorten struct{ string }
 type shortenSlice struct{ slice []string }
 

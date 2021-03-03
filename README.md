@@ -10,7 +10,7 @@ Go no es declarativo, por consiguiente, es una excelente pregunta.
 
 Ser declarativos es evitar escribir orientándonos a los procedimientos lógicos que nos dan un resultado, ejemplo :
 
-```
+```go
 // Paradigma imperativo
 func Suma(start, end int) int {
 	suma := 0
@@ -43,7 +43,7 @@ Existen grandes ventajas, a la hora de definir lógica de negocios, la programac
 
 Una de las ideas principales, es intentar generar funciones para esas cosas que se repiten en todos lados, por ejemplo, del código de los tutoriales anteriores :
 
-```
+```go
 func sayHelloHandler(c *gin.Context) {
 	userName := c.Param("userName")
 
@@ -53,7 +53,7 @@ func sayHelloHandler(c *gin.Context) {
 }
 ```
 
-```
+```go
 func pingHandler(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{
 		"answer": "pong",
@@ -63,7 +63,7 @@ func pingHandler(c *gin.Context) {
 
 Si escribimos una librería como :
 
-```
+```go
 func SendJSONAnswer(c *gin.Context, data interface{}) {
 	c.JSON(http.StatusOK, gin.H{
 		"answer": data,
@@ -73,13 +73,13 @@ func SendJSONAnswer(c *gin.Context, data interface{}) {
 
 Nos permite ser mas declarativo, a su vez no repetir. Vemos como queda el código nuevo:
 
-```
+```go
 func sayHelloHandler(c *gin.Context) {
 	gu.SendJSONAnswer(c, service.SayHello(c.Param("userName")))
 }
 ```
 
-```
+```go
 func pingHandler(c *gin.Context) {
 	gu.SendJSONAnswer(c, "pong")
 }
@@ -93,7 +93,7 @@ Si bien esta forma de pensar no esta 100% alineada con la practica de escribir l
 
 Por ejemplo, siguiendo el ejemplo anterior, si en vez de llamarle sayHelloHandler al método le llamamos sayHello, queda mas natural:
 
-```
+```go
 func init() {
 	getRouter().GET(
 		"/hello/:userName",
@@ -109,7 +109,7 @@ Y somos mas declarativos.
 
 Un builder es el caso típico de uso de programación declarativa
 
-```
+```go
 dialog.NewBuilder().Title("Hola Mundo").AcceptAction("Aceptar", "ok").Build()
 ```
 
@@ -117,7 +117,7 @@ Pienso que lo tiene de interesante el patrón builder, es que nos gusta porque n
 
 Una implementación de builder aceptable, podría ser :
 
-```
+```go
 package dialog
 
 import (
@@ -174,7 +174,7 @@ No se si justifica para un lenguaje como Go, pero seguramente alguna vez nos vam
 
 Veamos un ejemplo de una función en forma imperativa
 
-```
+```go
 func Shorten(name string) string {
 	values := strings.Split(name, " ")
 
@@ -192,7 +192,7 @@ func Shorten(name string) string {
 
 Ya se dieron cuenta que hace ? Que pasa si lo escribimos en forma declarativa :
 
-```
+```go
 func Shorten(name string) string {
 	return fromString(name).
 		split(" ").
@@ -215,7 +215,7 @@ simplemente convierte algo como "uno dos tres" en "UDT".
 
 Ahora para que el código anterior funcione, necesitamos estas herramientas :
 
-```
+```go
 type shorten struct{ string }
 type shortenSlice struct{ slice []string }
 
